@@ -1,0 +1,25 @@
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# erase background with current bg color
+defbce "on"
+
+# shift pg-up pg-down
+terminfo xterm ti@:te@:
+
+# first is 1 not 0
+bind c screen 1
+bind 0 select 10
+
+startup_message off
+hardstatus off
+hardstatus alwayslastline
+backtick 1 60 60 $HOME/bin/.screenrc.status
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%1`%{-}][%{B} %m-%d %{W}%c %{g}]'
+
+
+defscrollback 5000
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n*%f %t%{= kG}%+Lw%< %{= kG}%-=%D %m/%d/%y | %C:%s %A | %1`%{-}'
