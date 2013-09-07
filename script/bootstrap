@@ -68,7 +68,7 @@ install_dotfiles () {
     then
 
       overwrite=false
-      backup=false
+      backup=true
       skip=false
 
       if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
@@ -120,7 +120,7 @@ install_dotfiles () {
   done
 }
 
-setup_gitconfig
+#setup_gitconfig
 install_dotfiles
 
 # If we are on a mac, lets install and setup homebrew
