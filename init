@@ -2,6 +2,6 @@
 
 set -e
 git clone --recursive git@github.com:nihildeb/dotfiles.git $HOME/.dotfiles
-$HOME/.dotfiles/scripts/bootstrap
+$HOME/.dotfiles/script/bootstrap
 $HOME/.bin/dotfiles_update
 
