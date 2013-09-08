@@ -188,7 +188,7 @@ set t_Co=256
 try
     colorscheme solarized
 catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme evening
+    colorscheme morning
 endtry
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 set cursorline
