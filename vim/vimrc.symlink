@@ -23,10 +23,19 @@ call vundle#rc()
 " let Vundle manage Vundle required!
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
+" https://github.com/bling/vim-airline
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 " https://github.com/kien/ctrlp.vim
 Bundle 'kien/ctrlp.vim'
+" https://github.com/scrooloose/nerdtree
+Bundle 'scrooloose/nerdtree'
+"https://github.com/scrooloose/syntastic
+Bundle 'scrooloose/syntastic'
+" https://github.com/mileszs/ack.vim
+Bundle 'mileszs/ack.vim'
+" https://github.com/mhinz/vim-signify
+Bundle 'mhinz/vim-signify'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
@@ -161,7 +170,9 @@ nnoremap <C-L> :nohl<CR><C-L>
 " my basics {{{1
 "
 " don't litter
+set backup
 set backupdir=~/.vim/tmp/
+set writebackup
 set directory=~/.vim/tmp/
 
 " MacVim Fullscreen Settings
