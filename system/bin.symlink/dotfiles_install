@@ -1,0 +1,10 @@
+cd "$HOME/code/dotfiles"
+
+# update dotfiles
+./script/bootstrap
+
+# update bash
+$HOME/.bash-it/install.sh
+
+# update vim bundles
+$EDITOR +BundleInstall +qall

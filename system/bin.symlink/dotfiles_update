@@ -14,13 +14,4 @@ cd "$HOME/code/dotfiles"
 git pull
 git submodule update --recursive
 
-# update dotfiles
-./script/bootstrap
-
-# update bash
-$HOME/.bash-it/install.sh
-
-# update vim bundles
-$EDITOR +BundleInstall +qall
-
-
+./system/bin.symlink/dotfiles_install
