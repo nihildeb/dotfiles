@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 
-if [ ! -d "$HOME/code" ]; then
-  mkdir -p "$HOME/code"
-fi
+set -e
 
-cd "$HOME/code"
+# update dotfiles
+cd "$HOME/.dotfiles"
+git pull --recursive
+./script/bootstrap
 
-if [ ! -d "$HOME/code/dotfiles" ]; then
-  git clone --recursive git@github.com:nihildeb/dotfiles.git
-fi
+# update bash
+$HOME/.bash-it/install.sh
 
-cd "$HOME/code/dotfiles"
-git pull
-git submodule update --recursive
+# update vim bundles
+$EDITOR +BundleInstall +qall
 
-./system/bin.symlink/dotfiles_install

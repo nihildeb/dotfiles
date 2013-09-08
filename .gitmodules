@@ -1,6 +1,6 @@
 [submodule "vim/vim.symlink/bundle/vundle"]
 	path = vim/vim.symlink/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
-[submodule "bash/bash-it.symlink"]
-	path = bash/bash-it.symlink
-	url = https://github.com/revans/bash-it.git
+[submodule "system/bash-it.symlink"]
+	path = system/bash-it.symlink
+	url = http://github.com/revans/bash-it.git
