@@ -23,6 +23,10 @@ call vundle#rc()
 " let Vundle manage Vundle required!
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
+" https://github.com/kien/ctrlp.vim
+Bundle 'kien/ctrlp.vim'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
