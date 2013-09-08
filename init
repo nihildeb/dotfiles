@@ -2,6 +2,7 @@
 
 set -e
 git clone --recursive git@github.com:nihildeb/dotfiles.git $HOME/.dotfiles
+echo ''
 echo '* clone complete'
 
 cd $HOME/.dotfiles
@@ -9,6 +10,6 @@ cd $HOME/.dotfiles
 
 $HOME/.bin/dotfiles_update
 
+echo ''
 echo '* init complete'
-echo ' '
 
