@@ -13,4 +13,4 @@ fi
 cd "$HOME/code/dotfiles"
 git pull
 git submodule update --init --recursive
-vim +BundleInstall +qall
+$EDITOR +BundleInstall +qall
