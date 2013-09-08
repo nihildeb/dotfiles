@@ -56,7 +56,7 @@ link_files () {
 install_dotfiles () {
   info 'installing dotfiles'
 
-  overwrite_all=false
+  overwrite_all=true
   backup_all=true
   skip_all=false
 

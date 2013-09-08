@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+echo '* updating dotfiles'
 
 # update dotfiles
 cd "$HOME/.dotfiles"
@@ -13,3 +14,5 @@ $HOME/.bash-it/install.sh
 # update vim bundles
 $EDITOR +BundleInstall +qall
 
+echo '* updating dotfiles complete'
+echo ' '
