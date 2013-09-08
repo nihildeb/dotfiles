@@ -18,7 +18,7 @@ git submodule update --recursive
 ./script/bootstrap
 
 # update bash
-$HOME/.bash-it
+$HOME/.bash-it/install.sh
 
 # update vim bundles
 $EDITOR +BundleInstall +qall
