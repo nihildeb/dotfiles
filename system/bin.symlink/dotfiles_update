@@ -5,7 +5,8 @@ echo '* updating dotfiles'
 
 # update dotfiles
 cd "$HOME/.dotfiles"
-git pull --recursive
+git pull
+git submodule foreach git pull
 ./script/bootstrap
 
 # update bash
