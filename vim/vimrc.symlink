@@ -185,7 +185,11 @@ endif
 " display settings
 set background=dark
 set t_Co=256
-colo solarized
+try
+    colorscheme solarized
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme evening
+endtry
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 set cursorline
 set scrolloff=3   " Keep the next three lines viewable
