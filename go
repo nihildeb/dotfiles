@@ -11,4 +11,5 @@ if [ ! -d "$HOME/code/dotfiles" ]; then
 fi
 
 cd "$HOME/code/dotfiles"
+git pull
 git submodule update --init --recursive
