@@ -57,7 +57,7 @@ install_dotfiles () {
   info 'installing dotfiles'
 
   overwrite_all=true
-  backup_all=true
+  backup_all=false
   skip_all=false
 
   for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink`
@@ -67,7 +67,7 @@ install_dotfiles () {
     if [ -f $dest ] || [ -d $dest ]
     then
 
-      overwrite=false
+      overwrite=true
       backup=true
       skip=false
 
