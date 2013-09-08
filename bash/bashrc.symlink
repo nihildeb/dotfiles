@@ -54,19 +54,18 @@ export TODO="t"
 # https://github.com/xvzf/vcprompt
 #export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
 
-# Load Bash It
-source $BASH_IT/bash_it.sh
-# Check for an interactive session
-# [ -z "$PS1" ] && return
-
 # GRC colorizes nifty unix tools all over the place
 if $(grc &>/dev/null) && ! $(brew &>/dev/null)
 then
   source `brew --prefix`/etc/grc.bashrc
 fi
 
-#source ~/.bash/aliases.sh
-#source ~/.bash/completions.sh
-#source ~/.bash/paths.sh
-#source ~/.bash/config.sh
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:$PATH"
+export PATH="./bin:$HOME/.bin:$PATH"
+export MANPATH="/usr/local/man:/usr/local/git/man:$MANPATH"
+
+# Load Bash It
+source $BASH_IT/bash_it.sh
+# Check for an interactive session
+# [ -z "$PS1" ] && return
 
