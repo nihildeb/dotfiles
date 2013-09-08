@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Initialize Bash It
+echo 'bash it'
 
 # Reload Library
 alias reload='source ~/.bash_profile'
@@ -68,10 +69,3 @@ fi
 PREVIEW="less"
 [ -s /usr/bin/gloobus-preview ] && PREVIEW="gloobus-preview"
 [ -s /Applications/Preview.app ] && PREVIEW="/Applications/Preview.app"
-
-# Load all the Jekyll stuff
-
-if [ -e $HOME/.jekyllconfig ]
-then
-  . $HOME/.jekyllconfig
-fi
