@@ -16,6 +16,7 @@
 set nocompatible
 
 filetype off " required! for Vundle
+colo morning
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
