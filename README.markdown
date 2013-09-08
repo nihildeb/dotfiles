@@ -1,7 +1,6 @@
 # weeee
 
-    bash <(curl -fs https://raw.github.com/nihildeb/dotfiles/master/go)
-
+    bash <(curl -fs https://raw.github.com/nihildeb/dotfiles/master/system/bin.symlink/dotfiles_update)
 
 # holman does dotfiles
 
