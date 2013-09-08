@@ -8,6 +8,10 @@ echo '* clone complete'
 cd $HOME/.dotfiles
 ./script/bootstrap
 
+# install bash_it
+$HOME/.bash_it/install.sh
+
+# update everything
 $HOME/.bin/dotfiles_update
 
 echo ''

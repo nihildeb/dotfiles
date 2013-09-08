@@ -9,9 +9,6 @@ git pull
 git submodule foreach git pull origin master
 ./script/bootstrap
 
-# update bash
-$HOME/.bash_it/install.sh
-
 # update vim bundles
 $EDITOR +BundleInstall +qall
 
