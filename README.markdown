@@ -1,3 +1,8 @@
+# weeee
+
+    bash <(curl -fs https://raw.github.com/nihildeb/dotfiles/master/go)
+
+
 # holman does dotfiles
 
 ## dotfiles

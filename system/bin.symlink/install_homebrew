@@ -15,6 +15,6 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark hub
+brew install grc coreutils spark hub node
 
 exit 0
