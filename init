@@ -4,7 +4,8 @@ set -e
 git clone --recursive git@github.com:nihildeb/dotfiles.git $HOME/.dotfiles
 echo '* clone complete'
 
-$HOME/.dotfiles/script/bootstrap
+cd $HOME/.dotfiles
+./script/bootstrap
 
 $HOME/.bin/dotfiles_update
 
