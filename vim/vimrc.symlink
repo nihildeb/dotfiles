@@ -22,14 +22,15 @@ call vundle#rc()
 
 " let Vundle manage Vundle required!
 Bundle 'gmarik/vundle'
+" the awesome solarized color theme (use the one for your term too)
 Bundle 'altercation/vim-colors-solarized'
 " https://github.com/bling/vim-airline
 Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
+" https://github.com/tpope/vim-surround
+Bundle 'tpope/vim-surround'
+"Bundle 'tpope/vim-fugitive'
 " https://github.com/kien/ctrlp.vim
 Bundle 'kien/ctrlp.vim'
-" https://github.com/scrooloose/nerdcommenter
-Bundle 'scrooloose/nerdcommenter'
 " https://github.com/scrooloose/nerdtree
 Bundle 'scrooloose/nerdtree'
 "https://github.com/scrooloose/syntastic
@@ -37,10 +38,25 @@ Bundle 'scrooloose/syntastic'
 " https://github.com/mileszs/ack.vim
 Bundle 'mileszs/ack.vim'
 " https://github.com/mhinz/vim-signify
-Bundle 'mhinz/vim-signify'
+" gutter symbols for file changes
+"Bundle 'mhinz/vim-signify'
+" https://github.com/scrooloose/nerdcommenter
+Bundle 'scrooloose/nerdcommenter'
+" https://github.com/pangloss/vim-javascript
+Bundle 'pangloss/vim-javascript'
+" https://github.com/ervandew/supertab
+"Bundle 'ervandew/supertab'
+" https://github.com/msanders/snipmate.vim
+Bundle 'msanders/snipmate.vim'
+"https://github.com/Lokaltog/vim-easymotion
+Bundle 'Lokaltog/vim-easymotion'
+" https://github.com/mattn/emmet-vim/
+" zen coding
+Bundle 'mattn/emmet-vim'
 
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+" using ctrl-p now for linux too
+"Bundle 'git://git.wincent.com/command-t.git'
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents.  Use this to allow intelligent auto-indenting for each filetype,
@@ -161,7 +177,8 @@ map Y y$
 
 " grep for word under cursor in c/cpp/h-files
 "map <F9> <Esc>:vim <cword> ./**/*.c* ./**/*.h<CR>
-map <F9> <Esc>:!couchapp push<CR> <CR>
+"map <F9> <Esc>:!couchapp push<CR> <CR>
+"map <D-/> NERDComToggle
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
