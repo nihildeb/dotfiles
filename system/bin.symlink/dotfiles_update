@@ -12,5 +12,7 @@ git submodule foreach git pull origin master
 # update vim bundles
 $EDITOR +BundleInstall +qall
 
+source ~/.bash_profile
+
 echo '* updating dotfiles complete'
 echo ' '
