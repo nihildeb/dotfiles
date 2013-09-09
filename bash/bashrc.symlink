@@ -24,7 +24,7 @@ export GIT_HOSTING='git@git.domain.com'
 case $OSTYPE in
   darwin*)
     export EDITOR="/usr/local/bin/mvim -v -f"
-    export VISUAL="/usr/local/bin/mvim -f"
+    export VISUAL="/usr/local/bin/mvim -v -f"
     ;;
   *)
     export EDITOR="vim"
