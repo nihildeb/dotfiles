@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -e
 git clone --recursive git@github.com:nihildeb/dotfiles.git $HOME/.dotfiles
 echo ''

@@ -31,9 +31,16 @@ Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-fugitive'
 " https://github.com/kien/ctrlp.vim
 Bundle 'kien/ctrlp.vim'
+
 " https://github.com/scrooloose/nerdtree
+" double \ doesn't execute the command at the moment. this is a problem in
+" this rc file
 Bundle 'scrooloose/nerdtree'
+
 "https://github.com/scrooloose/syntastic
+" use :Errors to see the error list
+" check the syntax_checkers dir in the plugins folder to see what executables
+" you need. `npm install -g jshint` for example
 Bundle 'scrooloose/syntastic'
 " https://github.com/mileszs/ack.vim
 Bundle 'mileszs/ack.vim'
