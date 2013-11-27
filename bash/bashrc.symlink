@@ -6,7 +6,6 @@ if [ -f /etc/bashrc ]; then
        . /etc/bashrc
 fi
 
-
 # Path to the bash it configuration
 export BASH_IT=$HOME/.bash
 
