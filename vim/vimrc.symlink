@@ -21,14 +21,23 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle required!
+" the magic that makes this work
 Bundle 'gmarik/vundle'
 " the awesome solarized color theme (use the one for your term too)
 Bundle 'altercation/vim-colors-solarized'
 " https://github.com/bling/vim-airline
 Bundle 'bling/vim-airline'
+"airline fast buffer switching
+let g:airline#extensions#tabline#enabled = 1
+
 " https://github.com/tpope/vim-surround
 Bundle 'tpope/vim-surround'
-"Bundle 'tpope/vim-fugitive'
+
+" https://github.com/tpope/vim-fugitive
+" :Gstatus :Glog
+Bundle 'tpope/vim-fugitive'
+
+
 " https://github.com/kien/ctrlp.vim
 Bundle 'kien/ctrlp.vim'
 
@@ -60,6 +69,8 @@ Bundle 'Lokaltog/vim-easymotion'
 " https://github.com/mattn/emmet-vim/
 " zen coding
 Bundle 'mattn/emmet-vim'
+" colors
+Bundle 'altercation/vim-colors-solarized'
 
 " non github repos
 " using ctrl-p now for linux too
