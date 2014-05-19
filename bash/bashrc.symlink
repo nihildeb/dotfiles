@@ -103,6 +103,6 @@ export PATH="$PATH:/Library/Developer/Ice-3.5.1/bin"
 
 # EC2 CLI tools http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-get-set-up.html
 # OSX specific atm
-export JAVA_HOME=`/usr/libexec/java_home`
+[ -f /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home`
 export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.6.13.0
 export PATH=$PATH:$EC2_HOME/bin 
