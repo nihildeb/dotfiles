@@ -67,6 +67,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:$PATH"
 export PATH="./bin:$HOME/.bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/git/man:$MANPATH"
 
+#android sdk on osx from homebrew
+#export ANDROID_HOME=/usr/local/opt/android-sdk
+
 GRC=`which grc`
 if [ "$TERM" != dumb ] && [ -n "$GRC" ]
 then
@@ -89,3 +92,17 @@ source $BASH_IT/bash_it.sh
 # Check for an interactive session
 # [ -z "$PS1" ] && return
 
+
+### Added by the Heroku Toolbelt
+export PATH="$PATH:/usr/local/heroku/bin"
+# by me: postgres 9.3
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
+# ZeroC Ice
+export ICE_HOME="/Library/Developer/Ice-3.5.1"
+export PATH="$PATH:/Library/Developer/Ice-3.5.1/bin"
+
+# EC2 CLI tools http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-get-set-up.html
+# OSX specific atm
+export JAVA_HOME=`/usr/libexec/java_home`
+export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.6.13.0
+export PATH=$PATH:$EC2_HOME/bin 
