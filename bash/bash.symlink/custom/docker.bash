@@ -1,40 +1,51 @@
 #!/bin/bash
-
-#alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
-#drm() { docker rm $(docker ps -q -a); }
-#dri() { docker rmi $(docker images -q); }
-#alias dkrd="docker run -d -P"
-#alias dkri="docker run -t -i -P"
-#alias dksh="docker run -t -i ubuntu /bin/bash"
-
-#docker ps -a -q | xargs docker rm
-
-# username will be prepended on images and such i.e. happymoose/sshd
-username='happymoose'
-
+# setting image_prefix will add the user to the image name when building
+# i.e. if you are in nginx/ and it contains a Dockerfile
+# 'dkb' creates nihildeb/happymoose-nginx
+# 'dkb foo' creates nihildeb/happymoose-foo
+# if you don't want his feature, just set it to ''
+image_prefix='nihildeb/happymoose-'
+# default base image for an interactive shell
+baseimg='ubuntu:14.04'
+# always use -P when running an image
+# -P, --publish-all=false: Publish all exposed ports to the host interfaces
+pub_ports=false
+# docker command just for grins
+docker='docker'
 # use sudo if not root
-docker_command=''
-function set_docker_command() {
-  if [[ $EUID -ne 0 ]]; then
-    eval "$docker_command='docker'"
+use_sudo=''
+if [[ $EUID -ne 0 ]]; then use_sudo=true; fi
+
+dkls() { ${use_sudo:+ "sudo"} $docker ps -a -q ; }
+dkll() { ${use_sudo:+ "sudo"} $docker ps -a --no-trunc ; }
+
+dkrm() { ${use_sudo:+ "sudo"} $docker rm $1 ; }
+dkrmr() {
+  ${use_sudo:+ "sudo"} $docker ps -a -q --no-trunc | xargs -r ${use_sudo:+ "sudo"} $docker rm
+}
+dkrma() { dkrmr; }
+
+dkri() { ${use_sudo:+ "sudo"} $docker run -t -i ${pub_ports:+ "-P"} ; }
+dkrd() { ${use_sudo:+ "sudo"} $docker run -d ${pub_ports:+ "-P"} ; }
+dksh() {
+  ${use_sudo:+ "sudo"} $docker run -t -i ${pub_ports:+ "-P"} $baseimg /bin/bash
+}
+dki() { ${use_sudo:+ "sudo"} $docker images ; }
+dkirm() { dkrmi $@ ; }
+dkrmi() { ${use_sudo:+ "sudo"} $docker rmi $@ ; }
+dkb() {
+  if [[ -z "$1" ]]; then
+    ${use_sudo:+ "sudo"} $docker build -t="$image_prefix${PWD##*/}" . ;
   else
-    eval "$docker_command='sudo docker'"
+    ${use_sudo:+ "sudo"} $docker build -t="$image_prefix$1" . ;
   fi
 }
-
-all_ids=''
-function set_all_ids() {
-  set_docker_command
-  eval "$all_ids='$docker_command ps -a -q'"
-  all_ids=$(docker_command) ps -a -q
+dkip() {
+  ${use_sudo:+ "sudo"} $docker inspect -f '{{ .NetworkSettings.IPAddress }}' $1
 }
-
-dkls() {
-  set_all_ids
-  echo $all_ids
+dkvi() {
+  $EDITOR `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
 }
-
-# list all docker IPs
-#dkip() {
-
-#}
+dksrc() {
+  source `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
+}
