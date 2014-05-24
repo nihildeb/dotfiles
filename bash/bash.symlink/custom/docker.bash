@@ -1,6 +1,4 @@
 #!/bin/bash
-export DOCKER_HOST=tcp://localhost:4243
-alias dkb2='boot2docker'
 # setting image_prefix will add the user to the image name when building
 # i.e. if you are in nginx/ and it contains a Dockerfile
 # 'dkb' creates nihildeb/happymoose-nginx
@@ -19,10 +17,28 @@ docker='docker'
 use_sudo=''
 #if [[ $EUID -ne 0 ]]; then use_sudo=true; fi
 
-dkls() { ${use_sudo:+ "sudo"} $docker ps -a -q ; }
+dkvmup() {
+  VBoxManage startvm dock --type headless 
+}
+dkvmdn() {
+  VBoxManage controlvm dock savestate 
+}
+dkvmssh() {
+  ssh -p 2222 root@localhost
+}
+wait_vm() {
+  while ! echo "ping" | nc localhost 2222 > /dev/null 2>&1; do
+    sleep 1
+  done
+}
+
+dkls() { ${use_sudo:+ "sudo"} $docker ps ; }
 dkll() { ${use_sudo:+ "sudo"} $docker ps -a ; }
 
 dkrm() { ${use_sudo:+ "sudo"} $docker rm $1 ; }
+dkrmiunnamed() {
+  $docker rmi $($docker images | grep '^<none>' | awk '{ print $3 }')
+}
 dkrmr() {
   ${use_sudo:+ "sudo"} $docker ps -a -q --no-trunc | xargs ${use_sudo:+ "sudo"} $docker rm
 }
@@ -43,6 +59,13 @@ dkb() {
     ${use_sudo:+ "sudo"} $docker build -t="$image_prefix$1" . ;
   fi
 }
+dkbnocache() {
+  if [[ -z "$1" ]]; then
+    ${use_sudo:+ "sudo"} $docker build --no-cache -t="$image_prefix${PWD##*/}" . ;
+  else
+    ${use_sudo:+ "sudo"} $docker build --no-cache -t="$image_prefix$1" . ;
+  fi
+}
 dkip() {
   ${use_sudo:+ "sudo"} $docker inspect -f '{{ .NetworkSettings.IPAddress }}' $1
 }
@@ -61,3 +84,5 @@ dkmapports() {
   done
   boot2docker start
 }
+
+
