@@ -24,7 +24,7 @@ dkvmdn() {
   VBoxManage controlvm dock savestate 
 }
 dkvmssh() {
-  ssh -p 2222 root@localhost
+  ssh -X -p 2222 root@localhost
 }
 wait_vm() {
   while ! echo "ping" | nc localhost 2222 > /dev/null 2>&1; do
@@ -77,12 +77,12 @@ dksrc() {
 }
 
 dkmapports() {
-  boot2docker stop
+  VBoxManage controlvm dock savestate 
   for i in {49000..49900}; do
-   VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port$i,tcp,,$i,,$i";
-   VBoxManage modifyvm "boot2docker-vm" --natpf1 "udp-port$i,udp,,$i,,$i";
+   VBoxManage modifyvm "dock" --natpf1 "tcp-port$i,tcp,,$i,,$i";
+   VBoxManage modifyvm "dock" --natpf1 "udp-port$i,udp,,$i,,$i";
   done
-  boot2docker start
+  VBoxManage startvm dock --type headless 
 }
 
 
