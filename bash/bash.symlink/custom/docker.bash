@@ -69,6 +69,13 @@ dkbnocache() {
 dkip() {
   ${use_sudo:+ "sudo"} $docker inspect -f '{{ .NetworkSettings.IPAddress }}' $1
 }
+dkpid() {
+  ${use_sudo:+ "sudo"} $docker inspect -f '{{ .State.Pid }}' $1
+}
+dkenter() {
+  pid=$(${use_sudo:+ "sudo"} $docker inspect -f '{{ .State.Pid }}' $1)
+  nsenter --target $pid --mount --uts --ipc --net --pid
+}
 dkvi() {
   $EDITOR `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
 }
