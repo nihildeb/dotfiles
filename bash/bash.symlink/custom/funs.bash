@@ -8,6 +8,16 @@ EC2_USER='ubuntu'
 vimdot() {
   $EDITOR ~/.dotfiles
 }
+pushdot() {
+  comment=${1:-'no comment'}
+  old=$(pwd)
+  cd ~/.dotfiles/
+  git add .
+  git commit -v -a -m $comment
+  git push
+  cd $old
+}
+
 vimfun() {
   $EDITOR `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
 }
