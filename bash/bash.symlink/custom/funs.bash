@@ -16,6 +16,7 @@ pushdot() {
   git commit -v -a -m '$comment'
   git push
   cd $old
+  srcfun
 }
 pulldot() {
   comment=${1:-'no comment'}
