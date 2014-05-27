@@ -32,8 +32,8 @@ wait_vm() {
   done
 }
 
-dkls() { ${use_sudo:+ "sudo"} $docker ps ; }
-dkll() { ${use_sudo:+ "sudo"} $docker ps -a ; }
+dkps() { ${use_sudo:+ "sudo"} $docker ps ; }
+dkpsa() { ${use_sudo:+ "sudo"} $docker ps -a ; }
 
 dkrm() { ${use_sudo:+ "sudo"} $docker rm $1 ; }
 dkrmiunnamed() {
