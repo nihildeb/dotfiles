@@ -17,6 +17,20 @@ pushdot() {
   git push
   cd $old
 }
+pulldot() {
+  comment=${1:-'no comment'}
+  old=$(pwd)
+  cd ~/.dotfiles/
+  git pull
+  cd $old
+  srcfun
+}
+statdot() {
+  old=$(pwd)
+  cd ~/.dotfiles/
+  git status
+  cd $old
+}
 
 vimfun() {
   $EDITOR `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
