@@ -72,10 +72,16 @@ dkip() {
 dkpid() {
   ${use_sudo:+ "sudo"} $docker inspect -f '{{ .State.Pid }}' $1
 }
+
 dkenter() {
-  pid=$(${use_sudo:+ "sudo"} $docker inspect -f '{{ .State.Pid }}' $1)
+  # lookup container id by name, then inspect because inspect
+  # will get confused when there is an image of the same name
+  container_name=$1
+  container_id=$($docker ps | awk '/[ \t]'"$1"'[ \t]/ { print $1 }')
+  pid=$($docker inspect -f '{{ .State.Pid }}' $container_id)
   nsenter --target $pid --mount --uts --ipc --net --pid
 }
+
 dkvi() {
   $EDITOR `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
 }
