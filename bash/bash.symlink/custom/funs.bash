@@ -3,7 +3,11 @@ EC2_IP_1='54.86.18.40'
 EC2_IP_2='54.86.66.164'
 EC2_IP_TEMP='54.86.85.239'
 EC2_PEM='-i '"${HOME}"'/.ssh/nihildeb.pem'
-EC2_USER='root'
+EC2_USER='ubuntu'
+
+# bash <(curl -s https://raw.githubusercontent.com/nihildeb/dotfiles/master/init)
+# requires git
+# vim +BundleInstall! +qall!
 
 vimdot() {
   $EDITOR ~/.dotfiles
