@@ -29,6 +29,7 @@ pulldot() {
   old=$(pwd)
   cd ~/.dotfiles/
   git pull
+  $HOME/.bin/dotfiles_update
   cd $old
   srcfun
 }

@@ -98,9 +98,11 @@ dkmapports() {
 }
 
 dkinstall() {
+  apt-get update && apt-get install -y aufs-tools cgroup-lite
   wget https://get.docker.io/builds/Linux/x86_64/docker-latest -O docker
   chmod +x docker
   mv docker /usr/local/bin/docker
+  echo 'change settings and configure upstart in /etc/default/docker and /etc/init/docker'
 }
 
 
