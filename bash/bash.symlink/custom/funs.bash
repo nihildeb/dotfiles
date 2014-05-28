@@ -4,6 +4,8 @@ EC2_IP_2='54.86.66.164'
 EC2_IP_TEMP='54.86.85.239'
 EC2_PEM='-i '"${HOME}"'/.ssh/nihildeb.pem'
 EC2_USER='ubuntu'
+DOCKER_SRC="${HOME}/dock"
+
 
 # bash <(curl -s https://raw.githubusercontent.com/nihildeb/dotfiles/master/init)
 # requires git
@@ -52,4 +54,16 @@ ec2() {
 ec3() { ssh $EC2_PEM $EC2_USER@$EC2_IP_2 ;}
 ec4() { ssh $EC2_PEM $EC2_USER@$EC2_IP_TEMP ;}
 
+###########
+# Docker
+dkpull() {
+  pwdir=${PWD}
+  if [ ! -d $DOCKER_SRC ]; then
+    cd $HOME
+    git clone https://github.com/nihildeb/dock.git
+  fi
+  cd $DOCKER_SRC
+  git pull
+  cd $pwdir
+}
 alias dock='ssh -p 2222 root@localhost'
