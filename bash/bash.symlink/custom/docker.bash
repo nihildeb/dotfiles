@@ -98,10 +98,20 @@ dkmapports() {
 }
 
 dkinstall() {
-  apt-get update && apt-get install -y aufs-tools cgroup-lite
+  echo 'installing deps...'
+  apt-get update && apt-get install -y aufs-tools cgroup-lite make gcc
+  echo 'installing docker...'
   wget https://get.docker.io/builds/Linux/x86_64/docker-latest -O docker
   chmod +x docker
   mv docker /usr/local/bin/docker
+
+  echo 'installing nsenter...'
+  cd /tmp
+  curl https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz | tar -zxf-
+  cd util-linux-2.24
+  ./configure --without-ncurses
+  make nsenter
+  cp nsenter /usr/local/bin
   echo 'change settings and configure upstart in /etc/default/docker and /etc/init/docker'
 }
 
