@@ -1,4 +1,4 @@
 popd () 
 { 
-    builtin popd "$@"
+    builtin popd "$HOME" 
 }
