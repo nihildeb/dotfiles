@@ -23,7 +23,7 @@ uncdot() {
     about 'change back to previous dir';
     group 'dotfiles';
 
-    cd $(DOTFILES_MEMDIR)
+    cd $DOTFILES_MEMDIR
 }
 
 
