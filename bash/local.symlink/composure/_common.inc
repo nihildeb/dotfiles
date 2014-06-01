@@ -1,9 +1,8 @@
 _common () 
 { 
     author 'Nick Hildebrant';
-    about '';
-    param '';
-    example '';
-    group '';
-    find /usr/local/ | grep completion
+    about 'functions factored out for reuse';
+    group 'lib';
 }
+
+pushd() { builtin pushd "$@" >/dev/null; }
