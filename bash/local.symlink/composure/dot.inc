@@ -18,5 +18,9 @@ cdot() {
     cd $(dot)
 }
 
+dotsrc() {
+  source "$HOME/.bashrc"
+}
+
 
 
