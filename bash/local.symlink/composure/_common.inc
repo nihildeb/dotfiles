@@ -6,3 +6,4 @@ _common ()
 }
 
 pushd() { builtin pushd "$@" >/dev/null; }
+popd() { builtin popd "$@" >/dev/null; }
