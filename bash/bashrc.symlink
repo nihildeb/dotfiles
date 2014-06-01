@@ -6,14 +6,25 @@ if [ -f /etc/bashrc ]; then
        . /etc/bashrc
 fi
 
+files=$(ls ~/.bash/lib/composure.sh \
+           ~/.bash/git-prompt/gitprompt.sh \
+           ~/.bash/*.sh \
+           ~/.bash/secure/*.sh \
+           ~/.composure/*.inc \
+           2>/dev/null)
+
+for file in $files; do
+    source $file
+done
+
 # Path to the bash it configuration
-export BASH_IT=$HOME/.bash
+#export BASH_IT=$HOME/.bash
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
 #export BASH_IT_THEME='bobby'
 #export BASH_IT_THEME='candy'
-export BASH_IT_THEME='doubletime'
+#export BASH_IT_THEME='doubletime'
 #export BASH_IT_THEME='pete'
 
 # Your place for hosting Git repos. I use this for private repos.
@@ -48,7 +59,7 @@ unset SSH_ASKPASS
 [ -t 0 ] && stty -ixon
 
 # Change this to your console based IRC client of choice.
-export IRC_CLIENT='irssi'
+export IRC_CLIENT='weechat'
 
 # Set this to the command you use for todo.txt-cli
 export TODO="t"
@@ -88,7 +99,7 @@ then
 fi
 
 # Load Bash It
-source $BASH_IT/bash_it.sh
+#source $BASH_IT/bash_it.sh
 # Check for an interactive session
 # [ -z "$PS1" ] && return
 
@@ -105,4 +116,4 @@ export PATH="$PATH:/Library/Developer/Ice-3.5.1/bin"
 # OSX specific atm
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home`
 export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.6.13.0
-export PATH=$PATH:$EC2_HOME/bin 
+export PATH=$PATH:$EC2_HOME/bin
