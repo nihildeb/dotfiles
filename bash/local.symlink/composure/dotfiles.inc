@@ -1,9 +1,9 @@
-dotfiles () 
+dotup () 
 { 
     author 'Nick Hildebrant';
-    about '';
+    about 'relink dotfiles and source them';
     param '';
-    example '';
-    group '';
+    example 'dotup';
+    group 'dotfiles';
     cat bash/bash.symlink/bashit/plugins/available/node.plugin.bash
 }
