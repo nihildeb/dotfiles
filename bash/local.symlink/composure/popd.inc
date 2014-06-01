@@ -1,4 +1,4 @@
 popd () 
 { 
-    builtin popd "$@" > /dev/null
+    builtin popd "$@"
 }
