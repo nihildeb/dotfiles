@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export DOTFILES_HOME="$HOME/.dotfiles"
-previous_dir=""
+export DOTFILES_MEMDIR=""
 
 dot () 
 { 
@@ -15,15 +15,15 @@ cdot() {
     about 'change to dotfiles dir';
     group 'dotfiles';
 
-    previous_dir=$(pwd)
-    cd dot
+    DOTFILES_MEMDIR=$(pwd)
+    cd $(dot)
 }
 
 uncdot() {
     about 'change back to previous dir';
     group 'dotfiles';
 
-    cd previous_dir
+    cd $(DOTFILES_MEMDIR)
 }
 
 
