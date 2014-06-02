@@ -43,6 +43,12 @@ dotsrc() {
 }
 alias br='dotsrc'
 
+# only for adding new dot files/dirs
+#todo refactor
+dotnew() {
+  $HOME/.bin/dotfiles_update
+}
+
 dotp() {
   comment=${1:-'no comment'}
   pushd $(pwd)
@@ -59,7 +65,6 @@ dotl() {
   pushd $(pwd)
   cd ~/.dotfiles/
   git pull
-  $HOME/.bin/dotfiles_update
   popd
   dotsrc
 }
@@ -75,7 +80,6 @@ secon() {
   pushd $(pwd)
   cd ~/.bash/
   tar czvpf - "$SECURE_DIR" | gpg -c --cipher-algo aes256 -o "$SECURE_FILE" && rm -rf "$SECURE_DIR"
-
   popd
 }
 
