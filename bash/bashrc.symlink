@@ -1,28 +1,46 @@
 #!/usr/bin/env bash
 
-# ~/.bashrc
+#set -o pipefail  # trace ERR through pipes
+#set -o errtrace  # trace ERR through 'time command' and other functions
+#error() {
+    #JOB="$0"              # job name
+    #LASTLINE="$1"         # line of error occurrence
+    #LASTERR="$2"          # error code
+    #echo "ERROR in ${JOB} : line ${LASTLINE} with exit code ${LASTERR}"
+    #exit 1
+#}
+#trap 'error ${LINENO} $?' ERR
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
        . /etc/bashrc
 fi
 
-files=$(ls ~/.bash/lib/composure.sh \
-           ~/.bash/git-prompt/gitprompt.sh \
-           ~/.bash/*.sh \
-           ~/.bash/secure/*.sh \
-           ~/.composure/*.inc \
-           2>/dev/null)
-
 for f in "$HOME"/.bash/*.sh; do
+  echo $f
   [ -e "$f" ] || continue
   source $f
 done
 
+#echo "$HOME/.bash/lib/composure.sh"
 source "$HOME/.bash/lib/composure.sh"
+
+#############
+# Prompt and FASD
+
+#function prompt_callback {
+#if [ `jobs | wc -l` -ne 0 ]; then
+  #echo -n " jobs:\j"
+#fi
+#}
+
+GIT_PROMPT_START="\t ○ [\[\e[0;34m\]\u@\H\[\e[39m\]] ○"
+GIT_PROMPT_END="\n\w \[\e[39m\]# "
+
+#echo "$HOME/.bash/git-prompt/gitprompt.sh"
 source "$HOME/.bash/git-prompt/gitprompt.sh"
 
-# topline
-# \t ○ [\[\e[0;34m\]\u@\H\[\e[39m\]] \w \[\e[39m\] $
-
+#echo "$(fasd --init posix-alias bash-hook)"
 eval "$(fasd --init posix-alias bash-hook)"
 alias v='f -e vim'
+

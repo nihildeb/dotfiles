@@ -1,3 +1,19 @@
+#!/usr/bin/env bash
+
+#set -o pipefail  # trace ERR through pipes
+#set -o errtrace  # trace ERR through 'time command' and other functions
+#error() {
+    #JOB="$0"              # job name
+    #LASTLINE="$1"         # line of error occurrence
+    #LASTERR="$2"          # error code
+    #echo "ERROR in ${JOB} : line ${LASTLINE} with exit code ${LASTERR}"
+    #exit 1
+#}
+#trap 'error ${LINENO} $?' ERR
+
+#source ~/.bash/lib/trap.sh
+#set -e
+
 # vars
 EC2_IP_1='54.86.18.40'
 EC2_IP_2='54.86.66.164'
@@ -5,49 +21,73 @@ EC2_IP_TEMP='54.86.85.239'
 EC2_PEM='-i '"${HOME}"'/.ssh/nihildeb.pem'
 EC2_USER='ubuntu'
 DOCKER_SRC="${HOME}/dock"
+BASH_DIR="$HOME/.bash"
+SECURE_DIR="secure"
+SECURE_FILE="secure.tar.gz.gpg"
+this_file="$(dirname $BASH_SOURCE)/$(basename $BASH_SOURCE)"
 
 # bash <(curl -s https://raw.githubusercontent.com/nihildeb/dotfiles/master/init)
 # requires git
 # vim +BundleInstall! +qall!
 
-dotvi() {
+dotvim() {
   $EDITOR ~/.dotfiles
+}
+
+bashvim() {
+  $EDITOR $BASH_DIR
 }
 
 dotp() {
   comment=${1:-'no comment'}
-  old=$(pwd)
+  pushd $(pwd)
   cd ~/.dotfiles/
   git add .
   git commit -v -a -m '$comment'
   git push
-  cd $old
-  srcfun
+  popd
+  funsrc
 }
 
 dotl() {
   comment=${1:-'no comment'}
-  old=$(pwd)
+  pushd $(pwd)
   cd ~/.dotfiles/
   git pull
   $HOME/.bin/dotfiles_update
-  cd $old
-  srcfun
+  popd
+  funsrc
 }
 
 dotstat() {
-  old=$(pwd)
+  pushd $(pwd)
   cd ~/.dotfiles/
   git status
-  cd $old
+  popd
 }
 
-vimfun() {
+secon() {
+  pushd $(pwd)
+  cd ~/.bash/
+  tar czvpf - "$SECURE_DIR" | gpg -c --cipher-algo aes256 -o "$SECURE_FILE" && rm -rf "$SECURE_DIR"
+
+  popd
+}
+
+secoff() {
+  pushd $(pwd)
+  cd ~/.bash/
+  gpg -d "$SECURE_FILE" | tar xzvf -
+  popd
+}
+
+funvim() {
   $EDITOR `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
 }
 
-srcfun() {
-  source `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
+
+funsrc() {
+  source $this_file
 }
 
 alias tmux='tmux attach || tmux'
@@ -69,3 +109,4 @@ dkpull() {
   cd $pwdir
 }
 alias dock='ssh -p 2222 root@localhost'
+

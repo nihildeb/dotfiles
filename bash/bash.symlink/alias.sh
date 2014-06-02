@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 alias sl=ls
 alias la='ls -AF'       # Compact view, show hidden
 alias ll='ls -al'
