@@ -1,9 +1,9 @@
-gp ()
+grp ()
 {
     about 'recursive grep for target';
     param '1: string to search for';
-    example '$ gp some_function_name';
-    example '$ gp "some string with spaces"';
+    example '$ grp some_function_name';
+    example '$ grp "some string with spaces"';
     group 'shell'
 
     typeset arg="$1";

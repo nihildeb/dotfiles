@@ -13,107 +13,14 @@ files=$(ls ~/.bash/lib/composure.sh \
            ~/.composure/*.inc \
            2>/dev/null)
 
-for file in $files; do
-    source $file
+for f in "$HOME"/.bash/*.sh; do
+  [ -e "$f" ] || continue
+  source $f
 done
 
-# Path to the bash it configuration
-#export BASH_IT=$HOME/.bash
+source "$HOME/.bash/lib/composure.sh"
+#source "~/.bash/git-prompt/gitprompt.sh"
+source "$HOME/.bash/git-prompt/gitprompt.sh"
 
-# Lock and Load a custom theme file
-# location /.bash_it/themes/
-#export BASH_IT_THEME='bobby'
-#export BASH_IT_THEME='candy'
-#export BASH_IT_THEME='doubletime'
-#export BASH_IT_THEME='pete'
-
-# Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
-
-# Set my editor and git editor
-## VIM
-case $OSTYPE in
-  darwin*)
-    export EDITOR="/usr/local/bin/mvim -v -f"
-    export VISUAL="/usr/local/bin/mvim -v -f"
-    ;;
-  *)
-    export EDITOR="vim"
-    export VISUAL="vim"
-    ;;
-esac
-
-alias vi=$EDITOR
-alias vim=$EDITOR
-
-# Set the path nginx
-export NGINX_PATH='/opt/nginx'
-
-# Don't check mail when opening terminal.
-unset MAILCHECK
-
-# redhat/fedora workaround, we're not all GUItards
-unset SSH_ASKPASS
-
-# disable flow control if in a terminal (i use ctrl-s in vim)
-[ -t 0 ] && stty -ixon
-
-# Change this to your console based IRC client of choice.
-export IRC_CLIENT='weechat'
-
-# Set this to the command you use for todo.txt-cli
-export TODO="t"
-
-# Set vcprompt executable path for scm advance info in prompt (demula theme)
-# https://github.com/xvzf/vcprompt
-#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
-
-# GRC colorizes nifty unix tools all over the place
-if $(grc &>/dev/null) && ! $(brew &>/dev/null)
-then
-  source `brew --prefix`/etc/grc.bashrc
-fi
-
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:$PATH"
-export PATH="./bin:$HOME/.bin:$PATH"
-export MANPATH="/usr/local/man:/usr/local/git/man:$MANPATH"
-
-#android sdk on osx from homebrew
-#export ANDROID_HOME=/usr/local/opt/android-sdk
-
-GRC=`which grc`
-if [ "$TERM" != dumb ] && [ -n "$GRC" ]
-then
-    alias colourify="$GRC -es --colour=auto"
-    alias configure='colourify ./configure'
-    alias diff='colourify diff'
-    alias make='colourify make'
-    alias gcc='colourify gcc'
-    alias g++='colourify g++'
-    alias as='colourify as'
-    alias gas='colourify gas'
-    alias ld='colourify ld'
-    alias netstat='colourify netstat'
-    alias ping='colourify ping'
-    alias traceroute='colourify /usr/sbin/traceroute'
-fi
-
-# Load Bash It
-#source $BASH_IT/bash_it.sh
-# Check for an interactive session
-# [ -z "$PS1" ] && return
-
-
-### Added by the Heroku Toolbelt
-export PATH="$PATH:/usr/local/heroku/bin"
-# by me: postgres 9.3
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
-# ZeroC Ice
-export ICE_HOME="/Library/Developer/Ice-3.5.1"
-export PATH="$PATH:/Library/Developer/Ice-3.5.1/bin"
-
-# EC2 CLI tools http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-get-set-up.html
-# OSX specific atm
-[ -f /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home`
-export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.6.13.0
-export PATH=$PATH:$EC2_HOME/bin
+eval "$(fasd --init posix-alias bash-hook)"
+alias v='f -e vim'
