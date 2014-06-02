@@ -34,11 +34,11 @@ source "$HOME/.bash/lib/composure.sh"
 #fi
 #}
 
-GIT_PROMPT_START="\t ○ [\[\e[0;34m\]\u@\H\[\e[39m\]] ○"
-GIT_PROMPT_END="\n\w \[\e[39m\]# "
+#GIT_PROMPT_START="\t ○ [\[\e[0;34m\]\u@\H\[\e[39m\]] ○"
+#GIT_PROMPT_END="\n\w \[\e[39m\]# "
 
-#echo "$HOME/.bash/git-prompt/gitprompt.sh"
-source "$HOME/.bash/git-prompt/gitprompt.sh"
+##echo "$HOME/.bash/git-prompt/gitprompt.sh"
+#source "$HOME/.bash/git-prompt/gitprompt.sh"
 
 #echo "$(fasd --init posix-alias bash-hook)"
 eval "$(fasd --init posix-alias bash-hook)"

@@ -11,9 +11,6 @@
 #}
 #trap 'error ${LINENO} $?' ERR
 
-#source ~/.bash/lib/trap.sh
-#set -e
-
 # vars
 EC2_IP_1='54.86.18.40'
 EC2_IP_2='54.86.66.164'

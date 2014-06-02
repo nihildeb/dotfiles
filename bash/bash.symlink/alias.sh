@@ -5,6 +5,8 @@ alias ll='ls -al'
 alias l='ls -a'
 alias l1='ls -1'
 
+alias cls='clear'
+
 alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
 alias ....='cd ../../..' # Go up three directories

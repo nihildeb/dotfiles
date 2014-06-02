@@ -27,9 +27,6 @@ Bundle 'gmarik/Vundle.vim'
 " https://github.com/digitaltoad/vim-jade
 Bundle 'digitaltoad/vim-jade'
 
-" the awesome solarized color theme (use the one for your term too)
-Bundle 'altercation/vim-colors-solarized'
-
 "airline buffer extension uses bufferline
 "Bundle 'bling/vim-bufferline'
 
@@ -154,6 +151,16 @@ Bundle 'hail2u/vim-css3-syntax'
 
 " Coffee
 Bundle 'kchmck/vim-coffee-script'
+
+""""""""""""""""""""""""""""
+" Color Bundles
+" Bundle 'adlawson/vim-sorcerer' bad bolding
+Bundle 'jpo/vim-railscasts-theme'
+Bundle 'vim-scripts/SlateDark'
+Bundle 'vim-scripts/Liquid-Carbon'
+Bundle 'altercation/vim-colors-solarized'
+
+
 call vundle#end()
 " Attempt to determine the type of a file based on its name and possibly its
 " contents.  Use this to allow intelligent auto-indenting for each filetype,
