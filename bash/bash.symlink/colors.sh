@@ -29,7 +29,7 @@ if [ $(uname) = "Darwin" ]; then
   export CLICOLOR=YES
   export LSCOLORS="Gxfxcxdxbxegedabagacad"
 else
-  export LS_COLORS=$(dircolors -b "$HOME/.dir_colors")
+  alias ls=ls --color
 fi
 
 
