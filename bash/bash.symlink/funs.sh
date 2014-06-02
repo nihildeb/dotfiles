@@ -43,12 +43,6 @@ dotsrc() {
 }
 alias br='dotsrc'
 
-# only for adding new dot files/dirs
-#todo refactor
-dotnew() {
-  $HOME/.bin/dotfiles_update
-}
-
 dotp() {
   comment=${1:-'no comment'}
   pushd $(pwd)
@@ -66,6 +60,7 @@ dotl() {
   cd ~/.dotfiles/
   git pull
   popd
+  $HOME/.bin/dotfiles_update
   dotsrc
 }
 

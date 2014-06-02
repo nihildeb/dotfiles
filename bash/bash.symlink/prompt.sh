@@ -15,14 +15,6 @@ function __git_prompt {
   __git_ps1 " $GIT_PS1_PAIR%s" | sed 's/ \([+*]\{1,\}\)$/\1/'
 }
 
-# Only show username@server over SSH.
-function __name_and_server {
-  echo "`whoami`@`hostname -s`"
-  #if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    #echo "`whoami`@`hostname -s` "
-  #fi
-}
-
 bash_prompt() {
 
   # regular colors
@@ -49,16 +41,8 @@ bash_prompt() {
   local RESET="\[\033[0;37m\]"
   local N="\[\e[39m\]" # no color?
 
-
   #don't use bins for username password
   PS1="$Y\t$N ○ [$B\u@\H$N] ○$C\$(__git_prompt)\n$W\w$N $ "
-  #PS1="$Y\t$N ○ [$B\$(__name_and_server)$N] ○$C\$(__git_prompt)\n$W\w$N $ "
-  #PS1="$PS1 : $K K $R R $G G $Y Y $B B $M M $C C $W W"
-  #PS1="$PS1 : $BK K $BR R $BG G $BY Y $BB B $BM M $BC C $BW W"
-  #PS1="\t ○ [\[\e[0;34m\]\u@\H\[\e[39m\]] ○ \$(__git_prompt)\n\w \[\e[39m\]# "
-
-  #PS1="\t $BY\$(__name_and_server)$C\W$M\$(__git_prompt)$RESET$ "
-
 }
 
 bash_prompt
