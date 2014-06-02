@@ -10,9 +10,11 @@ source "$HOME/.bash/lib/git-prompt.sh"
 # 17:39:15 henrik@Nyx project_dir ree-1.8.7@project master*$
 
 function __git_prompt {
-  GIT_PS1_SHOWDIRTYSTATE=1
-  [ `git config user.pair` ] && GIT_PS1_PAIR="`git config user.pair`@"
-  __git_ps1 " $GIT_PS1_PAIR%s" | sed 's/ \([+*]\{1,\}\)$/\1/'
+  if [[ -d .git ]]; then
+    GIT_PS1_SHOWDIRTYSTATE=1
+    [ `git config user.pair` ] && GIT_PS1_PAIR="`git config user.pair`@"
+    __git_ps1 " $GIT_PS1_PAIR%s" | sed 's/ \([+*]\{1,\}\)$/\1/';
+  fi
 }
 
 bash_prompt() {

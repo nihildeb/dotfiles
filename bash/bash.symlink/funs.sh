@@ -85,10 +85,6 @@ secoff() {
   popd
 }
 
-funvim() {
-  $EDITOR `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
-}
-
 alias tmux='tmux attach || tmux'
 
 ec2() { ssh $EC2_PEM $EC2_USER@$EC2_IP_1 ;}
