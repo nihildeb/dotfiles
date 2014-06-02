@@ -35,6 +35,11 @@ bashvim() {
   $EDITOR $BASH_DIR
 }
 
+dotsrc() {
+  source "$HOME"/.bashrc
+}
+alias br='dotsrc'
+
 dotp() {
   comment=${1:-'no comment'}
   pushd $(pwd)
@@ -43,7 +48,7 @@ dotp() {
   git commit -v -a -m "$comment"
   git push
   popd
-  funsrc
+  dotsrc
 }
 
 dotl() {
@@ -53,7 +58,7 @@ dotl() {
   git pull
   $HOME/.bin/dotfiles_update
   popd
-  funsrc
+  dotsrc
 }
 
 dotstat() {
@@ -80,11 +85,6 @@ secoff() {
 
 funvim() {
   $EDITOR `dirname $BASH_SOURCE`/`basename $BASH_SOURCE`
-}
-
-
-funsrc() {
-  source $this_file
 }
 
 alias tmux='tmux attach || tmux'
