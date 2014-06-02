@@ -4,7 +4,7 @@
 # 'dkb' creates nihildeb/happymoose-nginx
 # 'dkb foo' creates nihildeb/happymoose-foo
 # if you don't want his feature, just set it to ''
-image_prefix='nihildeb/'
+image_prefix=''
 # default base image for an interactive shell
 baseimg='ubuntu:14.04'
 # always use -P when running an image
