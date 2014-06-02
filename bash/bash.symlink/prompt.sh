@@ -50,8 +50,9 @@ bash_prompt() {
   local N="\[\e[39m\]" # no color?
 
 
-  PS1="$Y\t$N ○ [$B\$(__name_and_server)$N] ○$C\$(__git_prompt)\n$W\w$N $ "
-  #PS1="$Y\t$N ○ [$B\u@\H$N] ○$C\$(__git_prompt)\n$W\w$N $ "
+  #don't use bins for username password
+  PS1="$Y\t$N ○ [$B\u@\H$N] ○$C\$(__git_prompt)\n$W\w$N $ "
+  #PS1="$Y\t$N ○ [$B\$(__name_and_server)$N] ○$C\$(__git_prompt)\n$W\w$N $ "
   #PS1="$PS1 : $K K $R R $G G $Y Y $B B $M M $C C $W W"
   #PS1="$PS1 : $BK K $BR R $BG G $BY Y $BB B $BM M $BC C $BW W"
   #PS1="\t ○ [\[\e[0;34m\]\u@\H\[\e[39m\]] ○ \$(__git_prompt)\n\w \[\e[39m\]# "
