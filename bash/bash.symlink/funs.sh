@@ -40,7 +40,7 @@ dotp() {
   pushd $(pwd)
   cd ~/.dotfiles/
   git add .
-  git commit -v -a -m '$comment'
+  git commit -v -a -m "$comment"
   git push
   popd
   funsrc
