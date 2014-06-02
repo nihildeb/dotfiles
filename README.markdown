@@ -1,6 +1,6 @@
 # weeee
 
-    bash <(curl -fs https://raw.github.com/nihildeb/dotfiles/master/init)
+    bash < <(curl -sSL https://raw.github.com/nihildeb/dotfiles/master/init)
 
 # holman does dotfiles
 
