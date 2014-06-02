@@ -17,9 +17,10 @@ function __git_prompt {
 
 # Only show username@server over SSH.
 function __name_and_server {
-  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    echo "`whoami`@`hostname -s` "
-  fi
+  echo "`whoami`@`hostname -s`"
+  #if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    #echo "`whoami`@`hostname -s` "
+  #fi
 }
 
 bash_prompt() {

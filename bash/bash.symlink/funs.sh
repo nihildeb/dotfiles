@@ -31,8 +31,11 @@ dotvim() {
   $EDITOR ~/.dotfiles
 }
 
-bashvim() {
-  $EDITOR $BASH_DIR
+shvim() {
+  pushd $(pwd)
+  cd "$HOME/.bash/"
+  $EDITOR
+  popd
 }
 
 dotsrc() {
