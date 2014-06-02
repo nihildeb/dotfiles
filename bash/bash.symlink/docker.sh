@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # setting image_prefix will add the user to the image name when building
 # i.e. if you are in nginx/ and it contains a Dockerfile
 # 'dkb' creates nihildeb/happymoose-nginx
@@ -32,8 +32,8 @@ wait_vm() {
   done
 }
 
-dkls() { ${use_sudo:+ "sudo"} $docker ps ; }
-dkll() { ${use_sudo:+ "sudo"} $docker ps -a ; }
+dkps() { ${use_sudo:+ "sudo"} $docker ps ; }
+dkpsa() { ${use_sudo:+ "sudo"} $docker ps -a ; }
 
 dkrm() { ${use_sudo:+ "sudo"} $docker rm $1 ; }
 dkrmiunnamed() {
@@ -83,6 +83,13 @@ dkmapports() {
    VBoxManage modifyvm "boot2docker-vm" --natpf1 "udp-port$i,udp,,$i,,$i";
   done
   boot2docker start
+}
+
+dkclone() {
+  pushd $(pwd)
+  cd "$HOME"
+  git clone https://github.com/nihildeb/dock
+  popd
 }
 
 
