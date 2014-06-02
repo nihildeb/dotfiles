@@ -29,7 +29,7 @@ if [ $(uname) = "Darwin" ]; then
   export CLICOLOR=YES
   export LSCOLORS="Gxfxcxdxbxegedabagacad"
 else
-  alias ls=ls --color
+  alias ls='ls --color'
 fi
 
 
