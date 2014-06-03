@@ -25,3 +25,6 @@ done
 #echo "$HOME/.bash/lib/composure.sh"
 source "$HOME/.bash/lib/composure.sh"
 
+if [[ ! $TERM =~ screen ]]; then
+  tmux -2 new -A $USER
+fi
