@@ -18,4 +18,17 @@ ubdocker_install() {
   service docker start
 }
 
+ubnsenter_install() {
+  #http://jpetazzo.github.io/2014/03/23/lxc-attach-nsinit-nsenter-docker-0-9/
+  pushd $(pwd)
+  cd /tmp
+  curl https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz \
+    | tar -zxf-
+  cd util-linux-2.24
+  ./configure --without-ncurses
+  make nsenter
+  mv nsenter /usr/local/bin
+  popd
+}
+
 

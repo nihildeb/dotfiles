@@ -85,6 +85,13 @@ secoff() {
   popd
 }
 
+authorize() {
+  mkdir -p ~/.ssh
+  cat ~/.bash/secure/id_rsa.pub >> ~/.ssh/authorized_keys
+  chmod 600 ~/.ssh
+  chmod 600 ~/.ssh/authorized_keys
+}
+
 alias tmux='tmux attach || tmux'
 
 ec2() { ssh $EC2_PEM $EC2_USER@$EC2_IP_1 ;}
