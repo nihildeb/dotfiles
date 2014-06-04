@@ -22,9 +22,8 @@ for f in "$HOME"/.bash/*.sh; do
   source $f
 done
 
-#echo "$HOME/.bash/lib/composure.sh"
 source "$HOME/.bash/lib/composure.sh"
 
 if [[ ! $TERM =~ screen ]]; then
-  tmux -2 new -A $USER
+  tmux -2 attach -t $USER || tmux -2 new -s $USER
 fi
