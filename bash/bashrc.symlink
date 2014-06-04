@@ -24,6 +24,6 @@ done
 
 source "$HOME/.bash/lib/composure.sh"
 
-if [[ ! $TERM =~ screen ]]; then
+if [[ ! $TERM =~ screen ]] && [[ ! $OSTYPE =~ darwin ]]; then
   tmux -2 attach -t $USER || tmux -2 new -s $USER
 fi

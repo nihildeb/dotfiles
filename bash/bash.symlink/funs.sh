@@ -15,6 +15,7 @@
 EC2_IP_1='54.86.18.40'
 EC2_IP_2='54.86.66.164'
 EC2_IP_TEMP='54.86.85.239'
+EC2_TESTHOST='192.168.2.13'
 EC2_PEM='-i '"${HOME}"'/.ssh/nihildeb.pem'
 EC2_USER='root'
 DOCKER_SRC="${HOME}/dock"
@@ -22,6 +23,14 @@ BASH_DIR="$HOME/.bash"
 SECURE_DIR="secure"
 SECURE_FILE="secure.tar.gz.gpg"
 this_file="$(dirname $BASH_SOURCE)/$(basename $BASH_SOURCE)"
+
+alias tmux='tmux attach || tmux'
+
+ec2u() { ssh $EC2_PEM ubuntu@$EC2_IP_1 ;}
+ec2t() { ssh $EC2_USER@$EC2_TESTHOST ;}
+ec2() { ssh $EC2_USER@$EC2_IP_1 ;}
+ec3() { ssh $EC2_PEM $EC2_USER@$EC2_IP_2 ;}
+ec4() { ssh $EC2_PEM $EC2_USER@$EC2_IP_TEMP ;}
 
 # bash <(curl -s https://raw.githubusercontent.com/nihildeb/dotfiles/master/init)
 # requires git
@@ -91,12 +100,6 @@ authorize() {
   chmod 600 ~/.ssh
   chmod 600 ~/.ssh/authorized_keys
 }
-
-alias tmux='tmux attach || tmux'
-
-ec2() { ssh $EC2_PEM $EC2_USER@$EC2_IP_1 ;}
-ec3() { ssh $EC2_PEM $EC2_USER@$EC2_IP_2 ;}
-ec4() { ssh $EC2_PEM $EC2_USER@$EC2_IP_TEMP ;}
 
 ###########
 # Docker
