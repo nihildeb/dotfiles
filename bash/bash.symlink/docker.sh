@@ -48,7 +48,7 @@ dkcontainer() {
 }
 
 dkrun() {
-  $docker run -t -i -P --name=$(dkcontainer) $(dkimage) $@
+  $docker run -t -i $($(pwd)/args.sh) --name=$(dkcontainer) $(dkimage) $@
 }
 
 dksrv() {
