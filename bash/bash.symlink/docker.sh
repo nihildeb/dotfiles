@@ -67,8 +67,6 @@ dkrmi() {
   $docker rmi $(dkimage)
 }
 
-
-
 dkenter() {
   if [[ -n $(which nsenter) ]]; then
     nsenter --target $(dkpid) --mount --uts --ipc --net --pid ;
@@ -86,6 +84,10 @@ dkpid() {
   echo $(dkinfo -f='{{.State.Pid}}')
 }
 
+dkunnamed() {
+  echo $($docker images | grep '^<none>' | awk '{ print $3 }')
+}
+
 ##############
 # unamed commands
 
@@ -97,7 +99,7 @@ dkrmiunnamed() {
   $docker rmi $($docker images | grep '^<none>' | awk '{ print $3 }')
 }
 dkrmr() {
-  ${use_sudo:+ "sudo"} $docker ps -a -q --no-trunc | xargs ${use_sudo:+ "sudo"} $docker rm
+  ${use_sudo:+ "sudo"} $docker ps -a -q | xargs --no-run-if-empty ${use_sudo:+ "sudo"} $docker rm
 }
 dkrma() { dkrmr; }
 
