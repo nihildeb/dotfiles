@@ -88,6 +88,10 @@ dkunnamed() {
   echo $($docker images | grep '^<none>' | awk '{ print $3 }')
 }
 
+dkhup() {
+  dkb && dkstop && dkrm && dkrmiunnamed && dksrv
+}
+
 ##############
 # unamed commands
 
