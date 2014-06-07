@@ -52,3 +52,6 @@ unset bash_prompt
 
 eval "$(fasd --init posix-alias bash-hook)"
 alias v='f -e vim'
+alias c='fasd_cd -d'
+
+
