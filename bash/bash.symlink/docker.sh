@@ -92,6 +92,14 @@ dkhup() {
   dkb && dkstop && dkrm && dkrmiunnamed && dksrv
 }
 
+dknew() {
+  dir=${1-'new_image'}
+  mkdir -p "$dir"/root
+  cp -R ./base/root/docker "$dir/root/"
+  cp ./base/Dockerfile "$dir/"
+  cd "$dir"
+}
+
 ##############
 # unamed commands
 
