@@ -76,6 +76,10 @@ dkenter() {
   fi
 }
 
+dkattach() {
+  $docker attach $(dkcontainer)
+}
+
 dkinfo() {
   echo $($docker inspect $@ $(dkcontainer))
 }

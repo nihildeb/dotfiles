@@ -115,3 +115,7 @@ dkpull() {
 }
 alias dock='ssh -p 2222 root@localhost'
 
+install_key() {
+  cat "$HOME/.ssh/id_rsa.pub" | ssh $EC2_PEM $EC2_USER@$EC2_IP_1 "sudo gitreceive upload-key nihildeb"
+}
+
