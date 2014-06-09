@@ -40,6 +40,10 @@ dotvim() {
   $EDITOR ~/.dotfiles
 }
 
+funvim() {
+  $EDITOR $HOME/.bash/funs.sh
+}
+
 shvim() {
   pushd $(pwd)
   cd "$HOME/.bash/"
@@ -119,3 +123,58 @@ install_key() {
   cat "$HOME/.ssh/id_rsa.pub" | ssh $EC2_PEM $EC2_USER@$EC2_IP_1 "gitreceive upload-key nihildeb"
 }
 
+srvstatus() {
+  local digcommand='dig +short '
+  source $HOME/.bash/domains.sh
+  echo " -- checking pdns ip1..."
+  for domain in ${cust1_domains[@]}; do
+    if [[ $($digcommand $EC2_IP_1 SOA $domain) =~ "$EC2_IP_1" ]]; then
+      echo OK $domain;
+    else
+      echo NOK $domain;
+    fi
+  done
+
+  echo " -- checking pdns ip1..."
+  for domain in ${cust1_domains[@]}; do
+    if [[ $($digcommand $EC2_IP_2 SOA $domain) =~ "$EC2_IP_2" ]]; then
+      echo OK $domain;
+    else
+      echo NOK $domain;
+    fi
+  done
+
+  # curl -s -I http://www.happymoose.com |head -n 1 |awk '{print $2}'
+  echo " -- checking www by ip..."
+  echo $(curltest $EC2_IP_1) $EC2_IP_1
+  echo $(curltest $EC2_IP_2) $EC2_IP_2
+
+  echo " -- checking www by domain..."
+  for domain in ${cust1_domains[@]}; do
+    echo $(curltest $domain) $domain
+  done
+
+  echo " -- checking redmine by domain..."
+  for domain in ${cust1_domains[@]}; do
+    echo $(curltest project.$domain) project.$domain
+  done
+
+  echo " -- checking smtp ports..."
+  if [[ $(nc -z -w1 $EC2_IP_1 25) ]]; then
+    echo OK $EC2_IP_1 25;
+  else
+    echo NOK $EC2_IP_1 25;
+  fi
+  if [[ $(nc -z -w1 $EC2_IP_2 25) ]]; then
+    echo OK $EC2_IP_2 25;
+  else
+    echo NOK $EC2_IP_2 25;
+  fi
+
+}
+
+# usage: curltest url 
+# echos reponse code
+curltest() {
+  echo $(curl -s -I $1 |head -n 1 |awk '{print $2}')
+}
