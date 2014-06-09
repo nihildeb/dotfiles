@@ -38,7 +38,10 @@ if [ $(uname) = "Darwin" ]; then
 
   # ZeroC Ice
   export ICE_HOME="/Library/Developer/Ice-3.5.1"
-  export PATH="$PATH:/Library/Developer/Ice-3.5.1/bin";
+  export PATH="$PATH:/Library/Developer/Ice-3.5.1/bin"
+
+  # ruby/bundler
+  export PATH="$PATH:/usr/local/Cellar/ruby193/1.9.3-p545/bin";
 
 else
   echo running linux, no special exports
