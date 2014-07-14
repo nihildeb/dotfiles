@@ -65,3 +65,6 @@ alias dsclean='find . -type f -name .DS_Store -print0 | xargs -0 rm'
 
 # Flush your dns cache
 alias flush='dscacheutil -flushcache'
+
+# Go
+alias godoc='godoc -http=:6060'

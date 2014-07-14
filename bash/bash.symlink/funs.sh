@@ -178,3 +178,7 @@ srvstatus() {
 curltest() {
   echo $(curl -s -I $1 |head -n 1 |awk '{print $2}')
 }
+
+pgtunnel() {
+  ssh -2 -N -f -L 5432:localhost:5432 root@ipsaw.com
+}
