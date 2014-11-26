@@ -12,6 +12,8 @@
 #trap 'error ${LINENO} $?' ERR
 
 # vars
+RPI_IP_1='192.168.2.2'
+RPI_IP_2='192.168.2.3'
 EC2_IP_1='54.86.18.40'
 EC2_IP_2='54.86.66.164'
 EC2_IP_TEMP='54.86.85.239'
@@ -26,6 +28,8 @@ this_file="$(dirname $BASH_SOURCE)/$(basename $BASH_SOURCE)"
 
 alias tmux='tmux attach || tmux'
 
+rpi() { ssh -Y pi@$RPI_IP_1 ;}
+rpi2() { ssh -Y pi@$RPI_IP_2 ;}
 ec2u() { ssh $EC2_PEM ubuntu@$EC2_IP_1 ;}
 ec2t() { ssh $EC2_USER@$EC2_TESTHOST ;}
 ec2() { ssh $EC2_USER@$EC2_IP_1 ;}

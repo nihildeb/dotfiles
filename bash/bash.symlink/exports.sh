@@ -32,13 +32,20 @@ if [ $(uname) = "Darwin" ]; then
 
   #android sdk on osx from homebrew
   export ANDROID_HOME=/usr/local/opt/android-sdk
+  export ANDROID_SDK=/usr/local/Cellar/android-sdk/23.0.2
+  export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/23.0.2
+  export ANDROID_NDK=/usr/local/Cellar/android-ndk-r9d/r9d
+  export NDK_ROOT=/usr/local/Cellar/android-ndk-r9d/r9d
+  export COCOS2DX_ROOT=/usr/local/cocos2d-x-3.3rc0
+  export PATH=$PATH:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools
+  export PATH=$PATH:$COCOS2DX_ROOT/tools/cocos2d-console/bin
 
   # by me: postgres 9.3
   export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
 
   # ZeroC Ice
-  export ICE_HOME="/Library/Developer/Ice-3.5.1"
-  export PATH="$PATH:/Library/Developer/Ice-3.5.1/bin"
+  #export ICE_HOME="/Library/Developer/Ice-3.5.1"
+  #export PATH="$PATH:/Library/Developer/Ice-3.5.1/bin"
 
   # ruby/bundler
   export PATH="$PATH:/usr/local/Cellar/ruby193/1.9.3-p545/bin";
