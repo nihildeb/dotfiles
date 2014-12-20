@@ -50,14 +50,12 @@ if [ $(uname) = "Darwin" ]; then
   # ruby/bundler
   export PATH="$PATH:/usr/local/Cellar/ruby193/1.9.3-p545/bin";
 
-else
-  echo running linux, no special exports
 fi
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:$PATH"
 export PATH="./bin:$HOME/.bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/git/man:$MANPATH"
 
-export GOPATH=$HOME/go
-export GOROOT=`go env GOROOT`
-export PATH=$PATH:$GOROOT/bin
+#export GOPATH=$HOME/go
+#export GOROOT=`go env GOROOT`
+#export PATH=$PATH:$GOROOT/bin

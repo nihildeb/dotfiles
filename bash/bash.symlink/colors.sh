@@ -14,8 +14,6 @@ if [[ -n "$GRC" ]]; then
   alias netstat='colourify netstat'
   alias ping='colourify ping'
   alias traceroute='colourify /usr/sbin/traceroute'
-else 
-  echo 'No colours for you!';
 fi
 
 
