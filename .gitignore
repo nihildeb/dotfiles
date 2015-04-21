@@ -2,4 +2,5 @@ vim/vim.symlink/bundle
 vim/vim.symlink/tmp
 vim/vim.symlink/.netrwhist
 bash/bash.symlink/secure/
+bash/local.symlink/share/
 
