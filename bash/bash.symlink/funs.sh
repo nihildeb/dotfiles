@@ -187,3 +187,11 @@ curltest() {
 pgtunnel() {
   ssh -2 -N -f -L 5432:localhost:5432 root@ipsaw.com
 }
+
+flacify() {
+  # convert .wav to flac recursively
+  for i in *.wav ; do
+    echo convert "$i" to $(basename "$i").flac
+    #flac -8 "$i" -o $(basename "$i").flac
+  done
+}
