@@ -19,6 +19,7 @@ EC2_IP_2='54.86.66.164'
 EC2_IP_TEMP='54.86.85.239'
 EC2_TESTHOST='192.168.2.13'
 EC2_PEM='-i '"${HOME}"'/.ssh/nihildeb.pem'
+SSH_LOGIN='-i '"${HOME}"'/.ssh/id_rsa'
 EC2_USER='root'
 DOCKER_SRC="${HOME}/dock"
 BASH_DIR="$HOME/.bash"
@@ -29,7 +30,7 @@ this_file="$(dirname $BASH_SOURCE)/$(basename $BASH_SOURCE)"
 alias tmux='tmux attach || tmux'
 
 rpi() { ssh -Y pi@$RPI_IP_1 ;}
-studio() { ssh -Y $STUDIO_IP ;}
+studio() { ssh $SSH_LOGIN -Y $STUDIO_IP ;}
 pis() { rsync -avz ~/sync/pd/ -e ssh $RPI_IP_2:/home/nihildeb/pd ;}
 ec2() { ssh $EC2_PEM ubuntu@$EC2_IP_1 ;}
 ec2t() { ssh $EC2_USER@$EC2_TESTHOST ;}
