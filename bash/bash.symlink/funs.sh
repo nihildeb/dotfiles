@@ -106,7 +106,7 @@ secoff() {
 authorize() {
   mkdir -p ~/.ssh
   cat ~/.bash/secure/id_rsa.pub >> ~/.ssh/authorized_keys
-  chmod 600 ~/.ssh
+  chmod 700 ~/.ssh
   chmod 600 ~/.ssh/authorized_keys
 }
 
