@@ -304,6 +304,13 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" remap C-w to get out of Chrome's way
+" (running ChromeOS with chroot shell in a Chrome tab
+nnoremap <C-Q> <C-W>
+" and C-N shouldn't be a new chrome window, but whatever
+inoremap <C-M> <C-N>
+
+
 
 "------------------------------------------------------------
 " my basics {{{1
