@@ -34,4 +34,7 @@ if [ "$HOSTNAME" = studio ]; then
   fi
 fi
 
+# fucking bell
+setterm -blength 0
+
 set +e
