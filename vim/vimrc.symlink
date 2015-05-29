@@ -192,6 +192,9 @@ Bundle 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Bundle 'honza/vim-snippets'
 
+" CSound 
+Bundle 'kunstmusik/csound-vim'
+
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<Nul>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -367,10 +370,10 @@ endif
 set background=dark
 set t_Co=256
 try
-    "colorscheme solarized
-    colorscheme SlateDark
+    colorscheme solarized
+    " colorscheme SlateDark
     " http://stackoverflow.com/questions/7103173/vim-how-to-change-the-highlight-color-for-search-hits-and-quickfix-selection
-    hi Search cterm=NONE ctermfg=black ctermbg=blue
+    " hi Search cterm=NONE ctermfg=black ctermbg=blue
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme morning
 endtry
