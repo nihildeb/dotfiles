@@ -3,4 +3,4 @@ vim/vim.symlink/tmp
 vim/vim.symlink/.netrwhist
 bash/bash.symlink/secure/
 bash/local.symlink/share/
-
+vim/vim.symlink/.ycm_extra_conf.pyc
