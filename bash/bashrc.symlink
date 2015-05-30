@@ -33,7 +33,7 @@ if [ "$HOSTNAME" = studio ]; then
   export LANG="$LC_ALL"
 fi
 
-# fucking bell
+# fucking bell on chromeos
 #setterm -blength 0
 
 set +e
