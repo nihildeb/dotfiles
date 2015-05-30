@@ -44,7 +44,7 @@ bash_prompt() {
   local N="\[\e[39m\]" # no color?
 
   #don't use bins for username password
-  PS1="$Y\t$N ○ [$B\u@\H$N] ○$C\$(__git_prompt)\n$W\w$N $ "
+  PS1="$Y\t$N [$B\u@\H$N] $C\$(__git_prompt)\n$W\w$N $ "
 }
 
 bash_prompt

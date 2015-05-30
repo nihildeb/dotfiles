@@ -14,6 +14,7 @@
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
+set encoding=utf-8
 
 filetype off " required! for Vundle
 
@@ -110,6 +111,7 @@ let g:syntastic_disabled_filetypes=['html']
 Bundle 'scrooloose/nerdtree'
 " Set up command for NERDTree
 map <leader>\ :NERDTreeToggle<CR>
+let g:NERDTreeDirArrows=0
 " close vim if the only window left open is a NERDTree
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -369,14 +371,14 @@ endif
 " display settings
 set background=dark
 set t_Co=256
-try
+"try
     colorscheme solarized
     " colorscheme SlateDark
     " http://stackoverflow.com/questions/7103173/vim-how-to-change-the-highlight-color-for-search-hits-and-quickfix-selection
     " hi Search cterm=NONE ctermfg=black ctermbg=blue
-catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme morning
-endtry
+"catch /^Vim\%((\a\+)\)\=:E185/
+    "colorscheme morning
+"endtry
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 set cursorline
 set scrolloff=3   " Keep the next three lines viewable
