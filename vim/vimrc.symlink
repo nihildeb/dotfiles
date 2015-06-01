@@ -212,6 +212,9 @@ call vundle#end()
 filetype indent plugin on
 au BufRead,BufNewFile *.json set filetype=json
 
+" csound comments start with ; 
+au FileType csound set cms=;%s
+
 " Enable syntax highlighting
 syntax on
 
@@ -295,7 +298,10 @@ set visualbell
 set t_vb=
 
 " Enable use of the mouse for all modes
-set mouse=a
+"set mouse=a
+" enable mouse copy and middle click paste
+" set mouse=v might be better?
+set mouse=r
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
