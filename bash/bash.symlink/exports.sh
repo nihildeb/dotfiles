@@ -50,6 +50,9 @@ if [ $(uname) = "Darwin" ]; then
   # ruby/bundler
   export PATH="$PATH:/usr/local/Cellar/ruby193/1.9.3-p545/bin";
 
+  # node npm since ubuntu sucks nuts and node doesn't provide an installer for linux
+  export PATH="$PATH:.node/bin";
+
 fi
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:$PATH"
